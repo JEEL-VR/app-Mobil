@@ -27,18 +27,28 @@
         <h1 style="color: white;">Inici de sessió</h1>
         <form class="col s12">
           <div class="row">
+            <div class="input-field col s12" >
+              <select style="color: white;">
+                <option value="1" selected >JEEL API</option>
+                <option value="2">Unknown API 1</option>
+                <option value="3">Unknown API 2</option>
+              </select>
+              <label>API</label>
+            </div>
+          </div>
+          <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Usuari" id="first_name" type="text" class="validate">
+              <input placeholder="Usuari" id="user" type="text" class="validate" style="color: white;">
               <label for="first_name">Ususari</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Clau" id="first_name" type="password" class="validate">
+                <input placeholder="Clau" id="password" type="password" class="validate" style="color: white;">
               <label for="password">Clau</label>
             </div>
           </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+          <button id="loginButton" class="btn waves-effect waves-light">Entrar
             <i class="material-icons right">send</i>
         </button>
         </form>
