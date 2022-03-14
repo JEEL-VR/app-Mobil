@@ -5,7 +5,8 @@
 ###### TODO
 
 - [x] Crear proyecto en cordova y inicializarlo 
-- [ ] Desarrollar diseño del login
+- [x] Desarrollar diseño del login
+- [x] Funcion base de leer cursos simulando respuesta de API
 - [ ] Añadir funcionalidad del login
-- [ ] Diseño de la parte que muestra los cursos
+- [x] Diseño de la parte que muestra los cursos
 - [ ] La carga de cursos del usuario loggueado
