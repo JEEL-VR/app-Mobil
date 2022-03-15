@@ -3,8 +3,9 @@
 
     $('.sidenav').sidenav();
     //$('.parallax').parallax();
-    //$('.tabs').tabs({"swipeable": true});
+    $('.tabs').tabs({"swipeable": true});
     $('select').formSelect();
+    
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
