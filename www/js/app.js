@@ -5,6 +5,7 @@ $( document ).ready(function() {
         let newElement = $('<a href="#" class="collection-item">'+cursos[curs]["title"]+'</a>');
         $("#llistaCursos").append(newElement);
     }
+    //Obtencion de cursos
     $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
     $("#usedAPI").text("API: "+localStorage.getItem("api"))
 });
