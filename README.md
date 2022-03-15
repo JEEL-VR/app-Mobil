@@ -7,6 +7,7 @@
 - [x] Crear proyecto en cordova y inicializarlo 
 - [x] Desarrollar diseño del login
 - [x] Funcion base de leer cursos simulando respuesta de API
+- [x] Poder guardar el SToken para hacer peticiones a la API
 - [ ] Añadir funcionalidad del login
 - [x] Diseño de la parte que muestra los cursos
 - [ ] La carga de cursos del usuario loggueado

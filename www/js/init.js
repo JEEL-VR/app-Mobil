@@ -15,7 +15,6 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
  
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-
     let userList = {"user":"test123","user2":"test"};
     $("#loginButton").click(function(){
       inputUser=$("#user").val();
@@ -23,6 +22,10 @@ function onDeviceReady() {
       if(inputUser in userList){
         if(userList[inputUser]==inputPass){
           alert("Dades correctes!!");
+          let usedAPI = $("#selectAPI option:selected").val();
+          localStorage.setItem("sesion_token","j3u23hj3j1i312ijijd");
+          localStorage.setItem("api",usedAPI);
+          
           location.href = './app.html';
         }else{
           alert("Error: Les dades introduides no son correctes");
