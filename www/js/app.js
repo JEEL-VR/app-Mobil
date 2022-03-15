@@ -1,11 +1,24 @@
 $( document ).ready(function() {
-    let cursos = [{"courseID": "31", "institutionID": "83", "title": "Movilizaciones 1r curso Grupo A", "description":"1r curso Grupo A de auxiliar de enfermería…"},{"courseID": "32", "institutionID": "83", "title": "Movilizaciones 1r curso Grupo B", "description":"1r curso Grupo B de auxiliar de enfermería…"}]
-    $("#llistaCursos").empty();
-    for (let curs in cursos){
-        let newElement = $('<a href="#" class="collection-item">'+cursos[curs]["title"]+'</a>');
-        $("#llistaCursos").append(newElement);
-    }
     //Obtencion de cursos
     $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
     $("#usedAPI").text("API: "+localStorage.getItem("api"))
+    //Obtencion de cursos con la API
+    $("#llistaCursos").empty();
+    $.ajax({
+        method: "GET",
+        url: "https://classvr-room-api.herokuapp.com/api/get_courses",
+        data: {token:localStorage.getItem("sesion_token")},
+        dataType: "json",
+    }).done(function (data) {
+        //console.log(user+" y "+pass+" y el token es: "+data);
+        //alert(data);
+        //console.log(data[cursos]);
+        for (let curs in data){
+            console.log(data[curs]);
+            let newElement = $('<a href="#" class="collection-item">'+data[curs]["title"]+'</a>');
+            $("#llistaCursos").append(newElement);
+        }
+    }).fail(function () {
+        console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+    });
 });
