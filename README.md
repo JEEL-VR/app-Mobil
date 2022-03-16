@@ -10,4 +10,4 @@
 - [x] Poder guardar el SToken para hacer peticiones a la API
 - [x] Añadir funcionalidad del login
 - [x] Diseño de la parte que muestra los cursos
-- [ ] La carga de cursos del usuario loggueado
+- [x] La carga de cursos del usuario loggueado
