@@ -13,8 +13,9 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<!-- Page Body  -->
 <body>
+  <!-- Menu  -->
+  <!--
     <nav>
         <div class="nav-wrapper blue lighten-3">
           <a href="#!" class="brand-logo">App mobil</a>
@@ -32,26 +33,32 @@
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
-      <div style="height: 100%; background: white; margin-top: 2px;">
-        <h1>Cursos</h1>
-        <!--
-          DEBUG DATA
-        <div class="chip">
-          <img src="img/apiIcon.png" alt="Contact Person">
-          <span id="usedAPI">Unknown API</span>
-        </div>
-        <div class="chip">
-          <img src="img/tokenicon.jpg" alt="Contact Person">
-          <span id="s_token">Unknown Session token</span>
-        </div>
-        -->
-        <div id="llistaCursos"class="collection">
-          <a href="#!" class="collection-item">Curs 1</a>
-          <a href="#!" class="collection-item">Curs 2</a>
-          <a href="#!" class="collection-item">Curs 3</a>
-          <a href="#!" class="collection-item">Curs 4</a>
-        </div>
-      </div>  
+      -->
+      <!-- Tabs  -->
+      <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
+        <li class="tab col s3"><a href="#test-swipe-2">Test 2</a></li>
+      </ul>
+      <!-- Tab 1  -->
+      <div id="test-swipe-1" class="col s12 white">
+          <h1>Cursos</h1>
+          <div class="chip">
+            <img src="img/apiIcon.png" alt="Contact Person">
+            <span id="usedAPI">Unknown API</span>
+          </div>
+          <div class="chip">
+            <img src="img/tokenicon.jpg" alt="Contact Person">
+            <span id="s_token">Unknown Session token</span>
+          </div>
+          <div id="llistaCursos"class="collection">
+            <a href="#!" class="collection-item">Unable to get courses</a>
+          </div>
+      </div>
+      <div id="test-swipe-2" class="col s12 white">
+
+      </div>
+      <!-- Tabs  -->
+      
   <!--  Scripts-->
   <script src="cordova.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

@@ -1,9 +1,7 @@
 $( document ).ready(function() {
     //Mostrar datos de Debug
-    /*
     $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
     $("#usedAPI").text("API: "+localStorage.getItem("api"))
-    */
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
     $.ajax({
