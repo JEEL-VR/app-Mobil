@@ -1,18 +1,18 @@
 $( document ).ready(function() {
-    //Obtencion de cursos
+    //Mostrar datos de Debug
+    /*
     $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
     $("#usedAPI").text("API: "+localStorage.getItem("api"))
-    //Obtencion de cursos con la API
+    */
+    //Obtaining courses with the API 
     $("#llistaCursos").empty();
     $.ajax({
         method: "GET",
-        url: "https://classvr-room-api.herokuapp.com/api/get_courses",
-        data: {token:localStorage.getItem("sesion_token")},
+        url: localStorage.getItem("api")+"/api/get_courses",
+        data: {session_token:localStorage.getItem("sesion_token")},
         dataType: "json",
     }).done(function (data) {
-        //console.log(user+" y "+pass+" y el token es: "+data);
-        //alert(data);
-        //console.log(data[cursos]);
+        //Show the curses
         for (let curs in data){
             console.log(data[curs]);
             let newElement = $('<a href="#" class="collection-item">'+data[curs]["title"]+'</a>');
