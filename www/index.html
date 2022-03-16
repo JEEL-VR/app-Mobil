@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Cordova polic  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src https://code.jquery.com https://fonts.gstatic.com 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' data: https://classvr-room-api.herokuapp.com ; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' * data: content:;">  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <title>Login</title>
+
+  <!-- CSS  -->
+    <style>
+        body{
+          background: rgb(131,58,180);
+          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        }
+    </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<!-- Page Body  -->
+<body>
+        
+    <div class="row">
+        <h1 style="color: white;">Inici de sessió</h1>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12" >
+              <select id="selectAPI" style="color: white;">
+                <option value="1" selected >JEEL API</option>
+                <option value="2">Unknown API 1</option>
+                <option value="3">Unknown API 2</option>
+              </select>
+              <label>API</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Usuari" id="user" type="text" class="validate" style="color: white;">
+              <label for="first_name">Ususari</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Clau" id="password" type="password" class="validate" style="color: white;">
+              <label for="password">Clau</label>
+            </div>
+          </div>
+          <button id="loginButton" class="btn waves-effect waves-light">Entrar
+            <i class="material-icons right">send</i>
+        </button>
+        </form>
+        
+    </div>
+    
+
+  <!--  Scripts-->
+  <script src="cordova.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
