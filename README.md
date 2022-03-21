@@ -12,4 +12,4 @@
 - [x] Diseño de la parte que muestra los cursos
 - [x] La carga de cursos del usuario loggueado
 - [x] Implementar el swipe en la App
-- [ ] Carga de los detalles del curso en la 2a pestaña 
+- [x] Carga de los detalles del curso en la 2a pestaña 
