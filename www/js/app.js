@@ -7,7 +7,6 @@ $( document ).ready(function() {
     //Ajax request to show course details
     function openCourse(cID){
         return function(){
-            alert("Siqueva");
             $.ajax({
                 method: "GET",
                 url: localStorage.getItem("api")+"/api/get_course_details",
@@ -28,6 +27,9 @@ $( document ).ready(function() {
                     let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle red">format_list_bulleted</i>'+data["tasks"][element]["title"]+'</a>');
                     $("#llista_tasks").append(newElement);
                 }
+                //Title and description edit to 2nd tab
+                $("#course_title").text(data["title"]);
+                $("#course_desc").text(data["description"]);
             }).fail(function () {
                 console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
             });

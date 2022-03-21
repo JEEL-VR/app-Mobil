@@ -3,8 +3,9 @@
 
     $('.sidenav').sidenav();
     //$('.parallax').parallax();
-    $('.tabs').tabs({"swipeable": true});
+    $('.tabs').tabs({"swipeable": true, "slide":true});
     $('select').formSelect();
+    $('.scrollspy').scrollSpy();
     
 
   }); // end of document ready
