@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Cordova polic  -->
-  <meta http-equiv="Content-Security-Policy" content="default-src https://code.jquery.com https://fonts.gstatic.com 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' data: https://classvr-room-api.herokuapp.com; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' * data: content:;">  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src https://code.jquery.com https://fonts.gstatic.com 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' data: https://classvr-room-api.herokuapp.com; style-src https://fonts.googleapis.com 'self' 'unsafe-inline'; media-src *; img-src 'self' * data: content:;">
+  <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
   <title>Cursos</title>
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
   <!-- Menu  -->
   <!--
@@ -34,49 +38,49 @@
         </div>
       </nav>
       -->
-      <!-- Tabs  -->
-      <div class="scroller"></div>
-      <ul id="tabs-swipe-demo" class="tabs">
-        <li class="tab col s3"><a class="active" href="#test-swipe-1">Cursos</a></li>
-        <li class="tab col s3"><a href="#test-swipe-2">Detalles</a></li>
-      </ul>
-      <!-- Tab 1  -->
-      
-      <div id="test-swipe-1" class="col s12 white" style="overflow-y: scroll !important;">
-          <h1>Cursos</h1>
-          <div class="chip">
-            <span id="usedAPI">Unknown API</span>
-          </div>
-          <div class="chip">
-          
-            <span id="s_token">Unknown Session token</span>
-          </div>
-          <div id="llistaCursos"class="collection">
-            <a href="#!" class="collection-item">Unable to get courses</a>
-          </div>
+  <!-- Tabs  -->
+  
+    <ul id="tabs-swipe-demo" class="tabs">
+      <li class="tab col s3"><a class="active" href="#test-swipe-1">Cursos</a></li>
+      <li class="tab col s3"><a href="#test-swipe-2">Detalles</a></li>
+    </ul>
+    <!-- Tab 1  -->
+
+    <div id="test-swipe-1" class="col s12 white">
+      <h1>Cursos</h1>
+      <div class="chip">
+        <span id="usedAPI">Unknown API</span>
       </div>
-      <!-- Tab 2  -->
-      <div id="test-swipe-2" class="col s12 white" style="overflow-y: scroll !important;">
-        
-        <h3 id="course_title"></h3>
-        <h4 id="course_desc"></h4>
-        <h5>Elements</h5>
-        <div id="llista_elements"class="collection">
-          <a href="#!" class="collection-item">No n'hi han elements</a>
-        </div>
-        <h5>Tasques</h5>
-        <div id="llista_tasks"class="collection">
-          <a href="#!" class="collection-item">No n'hi han tasques</a>
-        </div>
+      <div class="chip">
+
+        <span id="s_token">Unknown Session token</span>
+      </div>
+      <div id="llistaCursos" class="collection">
+        <a href="#!" class="collection-item">Unable to get courses</a>
       </div>
     </div>
-      <!-- Tabs  -->
-      
-  <!--  Scripts-->
-  <script src="cordova.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/app.js"></script>
+    <!-- Tab 2  -->
+    <div id="test-swipe-2" class="col s12 white">
+
+      <h3 id="course_title"></h3>
+      <h4 id="course_desc"></h4>
+      <h5>Elements</h5>
+      <div id="llista_elements" class="collection">
+        <a href="#!" class="collection-item">No n'hi han elements</a>
+      </div>
+      <h5>Tasques</h5>
+      <div id="llista_tasks" class="collection">
+        <a href="#!" class="collection-item">No n'hi han tasques</a>
+      </div>
+    </div>
+    <!-- Tabs  -->
+
+    <!--  Scripts-->
+    <script src="cordova.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
