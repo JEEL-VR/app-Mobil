@@ -11,3 +11,5 @@
 - [x] Añadir funcionalidad del login
 - [x] Diseño de la parte que muestra los cursos
 - [x] La carga de cursos del usuario loggueado
+- [x] Implementar el swipe en la App
+- [x] Carga de los detalles del curso en la 2a pestaña 

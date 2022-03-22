@@ -15,6 +15,7 @@
  
 .tabs-content {
   height: 100%;
+  overflow-y: scroll !important;
 }
 nav ul a,
 nav .brand-logo {
