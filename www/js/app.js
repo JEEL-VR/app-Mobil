@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     //Mostrar datos de Debug
-    $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
-    $("#usedAPI").text("API: "+localStorage.getItem("api"))
+    //$("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
+    //$("#usedAPI").text("API: "+localStorage.getItem("api"))
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
     //Ajax request to show course details
@@ -27,11 +27,22 @@ $( document ).ready(function() {
                     let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle red">format_list_bulleted</i>'+data["tasks"][element]["title"]+'</a>');
                     $("#llista_tasks").append(newElement);
                 }
+                $("#llista_tasksvr").empty();
+                for (let element in data["vr_tasks"]){
+                    console.log(data["vr_tasks"][element]);
+                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle red">format_list_bulleted</i>'+data["vr_tasks"][element]["title"]+'</a>');
+                    $("#llista_tasksvr").append(newElement);
+                }
                 //Title and description edit to 2nd tab
                 $("#course_title").text(data["title"]);
                 $("#course_desc").text(data["description"]);
             }).fail(function () {
                 console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+                $("#llista_elements").empty();
+                $("#llista_tasks").empty();
+                $("#llista_tasksvr").empty();
+                $("#course_title").text("Error");
+                $("#course_desc").text("No se ha podido listar el curso");
             });
             //Swipe to 2nd tab
             $('.tabs').tabs('select', "test-swipe-2");
@@ -52,5 +63,6 @@ $( document ).ready(function() {
         }
     }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+        
     });
 });

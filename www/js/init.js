@@ -3,11 +3,9 @@
 
     $('.sidenav').sidenav();
     //$('.parallax').parallax();
-    $('.tabs').tabs({"swipeable": true, "slide":true});
+    $('.tabs').tabs({"swipeable": true});
     $('select').formSelect();
     $('.scrollspy').scrollSpy();
-    
-
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -45,7 +43,7 @@ function onDeviceReady() {
         console.log(user+" y "+pass+" y el token es: "+data);
         //We check if the token is valid 
           sToken=data;
-          if(sToken!=undefined){
+          if(sToken!="Unauthorized"){
             localStorage.setItem("sesion_token",sToken);
             localStorage.setItem("api",usedAPI);
             location.href = './app.html';
@@ -54,6 +52,7 @@ function onDeviceReady() {
           }
       }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+        alert("ERROR: Les dades son incorrectes")
       });
       
       //Page reload prevention
