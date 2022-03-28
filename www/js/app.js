@@ -17,20 +17,20 @@ $( document ).ready(function() {
                 $("#llista_elements").empty();
                 for (let element in data["elements"]){
                     console.log(data["elements"][element]);
-                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle green">folder</i>'+data["elements"][element]["title"]+'</a>');
+                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">folder</i>'+data["elements"][element]["title"]+'</a>');
                     $("#llista_elements").append(newElement);
                 }
                 //Show user tasks
                 $("#llista_tasks").empty();
                 for (let element in data["tasks"]){
                     console.log(data["tasks"][element]);
-                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle red">format_list_bulleted</i>'+data["tasks"][element]["title"]+'</a>');
+                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">format_list_bulleted</i>'+data["tasks"][element]["title"]+'</a>');
                     $("#llista_tasks").append(newElement);
                 }
                 $("#llista_tasksvr").empty();
                 for (let element in data["vr_tasks"]){
                     console.log(data["vr_tasks"][element]);
-                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle red">format_list_bulleted</i>'+data["vr_tasks"][element]["title"]+'</a>');
+                    let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">format_list_bulleted</i>'+data["vr_tasks"][element]["title"]+'</a>');
                     $("#llista_tasksvr").append(newElement);
                 }
                 //Title and description edit to 2nd tab
