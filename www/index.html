@@ -10,12 +10,7 @@
   <title>Login</title>
 
   <!-- CSS  -->
-    <style>
-        body{
-          background: rgb(131,58,180);
-          background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-        }
-    </style>
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -23,8 +18,11 @@
 <!-- Page Body  -->
 <body>
         
-    <div class="row">
-        <h1 style="color: white;">Inici de sessió</h1>
+    <div class="row" style="margin-top: 5%;">
+      <center>
+        <img src="/img/vr_logo.png" width="50%" height="auto">
+      </center>
+        <h1>Inici de sessió</h1>
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12" >
@@ -36,16 +34,20 @@
               <label>API</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Usuari" id="user" type="text" class="validate" style="color: white;">
-              <label for="first_name">Ususari</label>
+          <div style="background-color: #DEEFE7; ">
+            <div class="row" style="margin: 10px;">
+              <div class="input-field col s12">
+                <input placeholder="Usuari" id="user" type="text" class="validate" style="color: white;">
+                <label for="first_name">Ususari</label>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Clau" id="password" type="password" class="validate" style="color: white;">
-              <label for="password">Clau</label>
+          <div style="background-color: #DEEFE7;">
+            <div class="row" style="margin: 10px;">
+              <div class="input-field col s12">
+                  <input placeholder="Clau" id="password" type="password" class="validate" style="color: white;">
+                <label for="password">Clau</label>
+              </div>
             </div>
           </div>
           <button id="loginButton" class="btn waves-effect waves-light">Entrar
