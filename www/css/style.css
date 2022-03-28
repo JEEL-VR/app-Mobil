@@ -67,6 +67,9 @@ footer.page-footer {
   margin: 0;
 }
 
-.nav{
+nav{
   background-color: #159A9C !important;
+}
+.alcachofa{
+  background-color: red;
 }
