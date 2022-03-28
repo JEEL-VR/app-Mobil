@@ -16,13 +16,11 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
-
 <body>
 
     <nav>
-        <div class="nav-wrapper blue lighten-3">
-          <a href="#!" class="brand-logo">App mobil</a>
-          
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img src="/img/vr_logo.png" width="100px" height="auto"></a>
           <ul class="right hide-on-med-and-down">
             <li class="active"><a href="app.html">Cursos</a></li>
             <li><a href="#">Perfil</a></li>
@@ -61,23 +59,28 @@
        
     </div>
     <!-- Tab 2  -->
-    <div id="test-swipe-2" class="col s12 white">
-
-      <h3 id="course_title"></h3>
+    <div id="test-swipe-2" class="col s12 white" style="margin: 10px; width: 99%;">
+      <div style="background-color: #DEEFE7;"><h3 id="course_title" style="margin: 10px;"></h3></div>
       <h4 id="course_desc"></h4>
-      <h5>Elements</h5>
+      <div style="background-color: #159A9C;">
+      <h5 style="color: #FFFFFF;">Elements</h5>
       <div id="llista_elements" class="collection">
         <a href="#!" class="collection-item">No n'hi han elements</a>
       </div>
-      <h5>Tasques</h5>
+      </div>
+      <div style="background-color: #159A9C;">
+      <h5 style="color: #FFFFFF;">Tasques</h5>
       <div id="llista_tasks" class="collection">
         <a href="#!" class="collection-item">No n'hi han tasques</a>
       </div>
-      <h5>Tasques VR</h5>
+      </div>
+      <div style="background-color: #159A9C;">
+      <h5 style="color: #FFFFFF;">Tasques VR</h5>
       <div id="llista_tasksvr" class="collection">
         <a href="#!" class="collection-item">No n'hi han tasques</a>
       </div>
     </div>
+  </div>
 
     <!--  Scripts-->
     <script src="cordova.js"></script>
