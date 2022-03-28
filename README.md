@@ -13,3 +13,4 @@
 - [x] La carga de cursos del usuario loggueado
 - [x] Implementar el swipe en la App
 - [x] Carga de los detalles del curso en la 2a pestaña 
+- [x] Adaptacion de diseño

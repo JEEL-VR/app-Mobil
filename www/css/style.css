@@ -5,12 +5,17 @@
  *
  * Made By MaterializeCSS.com
  */
+ @font-face {
+  font-family: heebbo;
+  src: url(../font/Heebo-VariableFont.ttf);
+}
  html, body {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-flow: column;
+  font-family: heebbo !important;
 }
  
 .tabs-content {
@@ -66,10 +71,15 @@ p {
 footer.page-footer {
   margin: 0;
 }
-
 nav{
   background-color: #159A9C !important;
 }
 .alcachofa{
   background-color: red;
+}
+.api_hidden{
+  visibility: hidden;
+}
+.api_show{
+  visibility: visible;
 }
