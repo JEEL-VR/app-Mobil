@@ -43,8 +43,7 @@
     <!-- Tab 1  -->
 
     <div id="test-swipe-1" class="col s12 white">
-      <h1>Cursos</h1>
-      <!-- Debug data 
+      <h1>Cursos</h1> 
       <div class="chip">
         <span id="usedAPI">Unknown API</span>
       </div>
@@ -52,7 +51,6 @@
 
         <span id="s_token">Unknown Session token</span>
       </div>
-      -->
       <div id="llistaCursos" class="collection">
         <a href="#!" class="collection-item">Unable to get courses</a>
       </div>
@@ -81,7 +79,16 @@
       </div>
     </div>
   </div>
-
+  <!-- Modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>El teu PIN es:</h4>
+      <p id="pinText">No se ha podido obtener el PIN, vuelve a a iniciar sesión.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
     <!--  Scripts-->
     <script src="cordova.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
