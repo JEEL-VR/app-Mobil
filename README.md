@@ -14,3 +14,4 @@
 - [x] Implementar el swipe en la App
 - [x] Carga de los detalles del curso en la 2a pestaña 
 - [x] Adaptacion de diseño
+- [x] Obtener pin y mostrarlo a traves de un modal.
