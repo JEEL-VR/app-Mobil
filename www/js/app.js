@@ -5,6 +5,42 @@ $( document ).ready(function() {
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
     //Ajax request to show course details
+    function getPin(taskID){
+        return function(){
+            console.log(taskID);
+            $.ajax({
+                method: "GET",
+                url: localStorage.getItem("api")+"/api/pin_request",
+                data: {session_token:localStorage.getItem("sesion_token"),VRtaskID:taskID},
+                dataType: "json",
+            }).done(function (data) {
+                //Show the modal with the PIN
+                $("#pinText").text(data);
+                $('#modal1').modal();
+                $('#modal1').modal('open');
+            }).fail(function () {
+                console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+                $('#modal1').modal();
+                $('#modal1').modal('open');
+                
+            });
+        };
+    }
+    function logout(){
+        $.ajax({
+            method: "GET",
+            url: localStorage.getItem("api")+"/api/logout",
+            data: {token:localStorage.getItem("sesion_token")},
+            dataType: "json",
+        }).done(function (data) {
+            //Redirect to login page
+            location.href = './index.html';
+        }).fail(function () {
+            console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+            
+        });
+        return false;
+    }
     function openCourse(cID){
         return function(){
             $.ajax({
@@ -27,10 +63,12 @@ $( document ).ready(function() {
                     let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">format_list_bulleted</i>'+data["tasks"][element]["title"]+'</a>');
                     $("#llista_tasks").append(newElement);
                 }
+                //Vr tasks
                 $("#llista_tasksvr").empty();
                 for (let element in data["vr_tasks"]){
                     console.log(data["vr_tasks"][element]);
                     let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">format_list_bulleted</i>'+data["vr_tasks"][element]["title"]+'</a>');
+                    newElement.click(getPin(data["vr_tasks"][element]["ID"]));
                     $("#llista_tasksvr").append(newElement);
                 }
                 //Title and description edit to 2nd tab
@@ -48,6 +86,7 @@ $( document ).ready(function() {
             $('.tabs').tabs('select', "test-swipe-2");
         };
     }
+
     $.ajax({
         method: "GET",
         url: localStorage.getItem("api")+"/api/get_courses",
@@ -65,4 +104,7 @@ $( document ).ready(function() {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
         
     });
+    //Logout button assign function
+    $("#logoutButton").click(logout);
+    $("#logoutButtonM").click(logout);
 });
