@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     //Mostrar datos de Debug
-    //$("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
-    //$("#usedAPI").text("API: "+localStorage.getItem("api"))
+    $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
+    $("#usedAPI").text("API: "+localStorage.getItem("api"))
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
     //Ajax request to show course details
@@ -15,9 +15,14 @@ $( document ).ready(function() {
                 dataType: "json",
             }).done(function (data) {
                 //Show the curses
-                alert(data["PIN"]);
+                //alert(data);
+                $("#pinText").text(data);
+                $('#modal1').modal();
+                $('#modal1').modal('open');
             }).fail(function () {
                 console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+                $('#modal1').modal();
+                $('#modal1').modal('open');
                 
             });
         };
