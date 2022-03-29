@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     //Mostrar datos de Debug
-    $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
-    $("#usedAPI").text("API: "+localStorage.getItem("api"))
+    //$("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
+    //$("#usedAPI").text("API: "+localStorage.getItem("api"))
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
     //Ajax request to show course details
@@ -14,8 +14,7 @@ $( document ).ready(function() {
                 data: {session_token:localStorage.getItem("sesion_token"),VRtaskID:taskID},
                 dataType: "json",
             }).done(function (data) {
-                //Show the curses
-                //alert(data);
+                //Show the modal with the PIN
                 $("#pinText").text(data);
                 $('#modal1').modal();
                 $('#modal1').modal('open');
@@ -26,6 +25,21 @@ $( document ).ready(function() {
                 
             });
         };
+    }
+    function logout(){
+        $.ajax({
+            method: "GET",
+            url: localStorage.getItem("api")+"/api/logout",
+            data: {token:localStorage.getItem("sesion_token")},
+            dataType: "json",
+        }).done(function (data) {
+            //Redirect to login page
+            location.href = './index.html';
+        }).fail(function () {
+            console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+            
+        });
+        return false;
     }
     function openCourse(cID){
         return function(){
@@ -90,4 +104,7 @@ $( document ).ready(function() {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
         
     });
+    //Logout button assign function
+    $("#logoutButton").click(logout);
+    $("#logoutButtonM").click(logout);
 });

@@ -23,12 +23,12 @@
           <a href="#!" class="brand-logo"><img src="/img/vr_logo.png" width="100px" height="auto"></a>
           <ul class="right hide-on-med-and-down">
             <li class="active"><a href="app.html">Cursos</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a id="logoutButton" href="#">Sortir</a></li>
             <li><a href="#">About</a></li>
           </ul>
           <ul class="sidenav" id="mobile-demo">
             <li class="active"><a href="app.html">Cursos</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a id="logoutButtonM" href="#">Sortir</a></li>
             <li><a href="#">About</a></li>
           </ul>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -44,6 +44,7 @@
 
     <div id="test-swipe-1" class="col s12 white">
       <h1>Cursos</h1> 
+      <!--Debug data
       <div class="chip">
         <span id="usedAPI">Unknown API</span>
       </div>
@@ -51,6 +52,7 @@
 
         <span id="s_token">Unknown Session token</span>
       </div>
+      -->
       <div id="llistaCursos" class="collection">
         <a href="#!" class="collection-item">Unable to get courses</a>
       </div>
@@ -83,7 +85,7 @@
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>El teu PIN es:</h4>
-      <p id="pinText">No se ha podido obtener el PIN, vuelve a a iniciar sesión.</p>
+      <p id="pinText">No s'ha pogut obtenir el PIN, torna a iniciar sessió.</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
