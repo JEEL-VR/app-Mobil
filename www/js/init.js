@@ -33,7 +33,7 @@ function onDeviceReady() {
       let usedAPI;
       switch($("#selectAPI option:selected").val()){
           case "1":
-              usedAPI="https://classvr-room-api.herokuapp.com";
+              usedAPI="http://classroomvr.herokuapp.com";
               break;
           case "2":
               usedAPI=$("#urlAPI").val();
@@ -41,24 +41,26 @@ function onDeviceReady() {
       }
       //Token Obtaining
       $.ajax({
-        method: "GET",
-        url: "https://classvr-room-api.herokuapp.com/api/login",
-        data: {username:user,password:pass},
+        method: "POST",
+        url: usedAPI+"/api/login",
+        data: JSON.stringify({email:user,password:pass}),
         dataType: "json",
+        contentType: "application/json",
       }).done(function (data) {
         console.log(user+" y "+pass+" y el token es: "+data);
-        //We check if the token is valid 
-          sToken=data;
-          if(sToken!="Unauthorized"){
-            localStorage.setItem("sesion_token",sToken);
-            localStorage.setItem("api",usedAPI);
-            location.href = './app.html';
-          }else{
-            alert("ERROR: Les dades son incorrectes")
-          }
+        //Check if the ajax call returns a error
+        if(Object.keys(data).indexOf("message") > -1){
+          alert("ERROR: "+data["message"]);
+        }else{
+          //We check if the token is valid 
+          sToken=data['session_token'];
+          console.log(data);
+          localStorage.setItem("sesion_token",sToken);
+          localStorage.setItem("api",usedAPI);
+          location.href = './app.html';
+        }
       }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
-        alert("ERROR: Les dades son incorrectes")
       });
       
       //Page reload prevention
