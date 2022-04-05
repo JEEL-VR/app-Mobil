@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     //Mostrar datos de Debug
-    $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
-    $("#usedAPI").text("API: "+localStorage.getItem("api"))
+    //$("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
+    //("#usedAPI").text("API: "+localStorage.getItem("api"))
     console.log(localStorage.getItem("sesion_token")['message']);
     //Obtaining courses with the API 
     $("#llistaCursos").empty();
@@ -93,25 +93,13 @@ $( document ).ready(function() {
                 $("#llista_tasks").empty();
                 $("#llista_tasksvr").empty();
                 $("#course_title").text("Error");
-                $("#course_desc").text("No se ha podido listar el curso");
+                $("#course_desc").text("No se ha podido listar los detalles del curso");
             });
         
             //Swipe to 2nd tab
             $('.tabs').tabs('select', "test-swipe-2");
         };
     }
-    /*
-    $.getJSON("../jsonTest/get_courses.json", function(data){
-        for (let curs in data){
-            console.log(data[curs]);
-            let newElement = $('<a href="#" class="collection-item">'+data[curs]["title"]+'</a>');
-            newElement.click(openCourse(data[curs]["_id"]));
-            $("#llistaCursos").append(newElement);
-        }
-    }).fail(function(){
-        console.log("An error has occurred.");
-    });
-    */
     $.ajax({
         method: "POST",
         url: localStorage.getItem("api")+"/api/get_courses",
@@ -128,6 +116,8 @@ $( document ).ready(function() {
         }
     }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
+        let newElement = $('<h4>No se han podido listar los cursos, vuelve a iniciar sesión<h4>');
+        $("#llistaCursos").append(newElement);
     });
     //Logout button assign function
     $("#logoutButton").click(logout);
