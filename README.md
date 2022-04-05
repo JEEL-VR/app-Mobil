@@ -18,6 +18,6 @@
 
 ###### ADAPTACION A NUENA API
 - [x] Login adaptado, con la carga del token.
-- [ ] Carga de cursos con la nueva API.
-- [ ] Carga de tasks con la nueva API.
+- [x] Carga de cursos con la nueva API.
+- [x] Carga de tasks con la nueva API.
 - [ ] Obtención del PIN con la nueva API.
