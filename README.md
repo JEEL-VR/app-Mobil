@@ -15,3 +15,9 @@
 - [x] Carga de los detalles del curso en la 2a pestaña 
 - [x] Adaptacion de diseño
 - [x] Obtener pin y mostrarlo a traves de un modal.
+
+###### ADAPTACION A NUENA API
+- [x] Login adaptado, con la carga del token.
+- [ ] Carga de cursos con la nueva API.
+- [ ] Carga de tasks con la nueva API.
+- [ ] Obtención del PIN con la nueva API.
