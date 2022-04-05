@@ -54,11 +54,11 @@ function onDeviceReady() {
             localStorage.setItem("api",usedAPI);
             location.href = './app.html';
           }else{
-            alert("ERROR: Les dades son incorrectes")
+            alert("ERROR: Los datos son incorrectos")
           }
       }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
-        alert("ERROR: Les dades son incorrectes")
+        alert("ERROR: Los datos son incorrectos")
       });
       
       //Page reload prevention

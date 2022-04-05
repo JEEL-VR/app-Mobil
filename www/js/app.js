@@ -16,7 +16,7 @@ $( document ).ready(function() {
                 dataType: "json",
             }).done(function (data) {
                 //Show the modal with the PIN
-                let pinTitle= $('<br><h4>El teu PIN es:</h4>');
+                let pinTitle= $('<br><h4>Su PIN es:</h4>');
                 let pin = $('<p id="pinText">'+data+'</p>');
                 $("#pin").append(pinTitle)
                 $("#pin").append(pin)
@@ -24,7 +24,7 @@ $( document ).ready(function() {
             }).fail(function () {
                 console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
                 let pinTitle= $('<br><h4>PIN:</h4>');
-                let pin = $('<p id="pinText">Error al obtenir el PIN, torn-ha a iniciar sessió</p>');
+                let pin = $('<p id="pinText">Error al obtener el PIN, vuelve a iniciar sesión</p>');
                 $("#pin").append(pinTitle)
                 $("#pin").append(pin)
                 $("#getPIN").addClass('disabled');
@@ -46,30 +46,35 @@ $( document ).ready(function() {
                 dataType: "json",
             }).done(function (data) {
                 let trys=1;
+                let haveTasks=false;
                 //Show the modal with the PIN
                 
-                console.log("buenas tardes"+data["vr_tasks"]["completions"]);
                 for (let element in data["vr_tasks"]){
                     for(let completion in data["vr_tasks"][element]["completions"]){
-                        if(data["vr_tasks"][element]["completions"][completion]["studentID"]==1){
+                        if(data["vr_tasks"][element]["completions"][completion]!=null){
                             console.log(data["vr_tasks"][element]["completions"][completion]);
-                            let tryText = $('<h5>Intent '+trys+'</h5>');
-                            let passedI = $('<h6>Articles pasats: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["passed_items"]+'</h6>');
-                            let failedI = $('<h6>Articles erronis: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["failed_items"]+'</h6>');
-                            let score = $('<h6>Puntatge: '+data["vr_tasks"][element]["completions"][completion]["grade"]+'</h6>');
+                            let tryText = $('<h5>Intento '+trys+'</h5>');
+                            let passedI = $('<h6>Ejercicios correctos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["passed_items"]+'</h6>');
+                            let failedI = $('<h6>Ejercicios incorrectos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["failed_items"]+'</h6>');
+                            let score = $('<h6>Puntuación: '+data["vr_tasks"][element]["completions"][completion]["grade"]+'</h6>');
                             $("#qualifications").append(tryText);
                             $("#qualifications").append(passedI);
                             $("#qualifications").append(failedI);
                             $("#qualifications").append(score);
                             trys++;
+                            haveTasks=true;
                         }
                     }
-                    $('#modal1').modal();
-                    $('#modal1').modal('open');
                 }
+                if(haveTasks==false){
+                    let errorTask = $('<h6>No se ha completado ninguna tarea</h6>');
+                    $("#qualifications").append(errorTask);
+                }
+                $('#modal1').modal();
+                $('#modal1').modal('open');
             }).fail(function () {
                 console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
-                let error = $('<p id="qualText">No hi han qualificacions disponibles.</p>');
+                let error = $('<p id="qualText">No hay qualificaciones disponibles.</p>');
                 $("#qualifications").append(error);
                 $('#modal1').modal();
                 $('#modal1').modal('open');
@@ -137,7 +142,7 @@ $( document ).ready(function() {
                 $("#llista_tasks").empty();
                 $("#llista_tasksvr").empty();
                 $("#course_title").text("Error");
-                $("#course_desc").text("No se ha podido listar el curso");
+                $("#course_desc").text("No se ha podido listar el curso, vuelve a iniciar sesión");
             });
             //Swipe to 2nd tab
             $('.tabs').tabs('select', "test-swipe-2");
@@ -159,7 +164,8 @@ $( document ).ready(function() {
         }
     }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
-        
+        let newElement = $('<h4>No se ha podido obtener los cursos, vuelve a iniciar sesión.</h4>');
+        $("#llistaCursos").append(newElement);
     });
     //Logout button assign function
     $("#logoutButton").click(logout);
