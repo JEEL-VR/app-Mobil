@@ -1,0 +1,6 @@
+POST http://classroomvr.herokuapp.com/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "session_token": "d420bce5178198c1e08c9e5a270d7f853c9b82d0"
+}
