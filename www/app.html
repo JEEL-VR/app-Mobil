@@ -38,13 +38,12 @@
   <!-- Tabs  -->
     <ul id="tabs-swipe-demo" class="tabs">
       <li class="tab col s3"><a class="active" href="#test-swipe-1">Cursos</a></li>
-      <li class="tab col s3"><a href="#test-swipe-2">Detalles</a></li>
+      <li class="tab col s3"><a href="#test-swipe-2">Detalls</a></li>
     </ul>
     <!-- Tab 1  -->
 
     <div id="test-swipe-1" class="col s12 white">
       <h1>Cursos</h1> 
-      <!--Debug data
       <div class="chip">
         <span id="usedAPI">Unknown API</span>
       </div>
@@ -52,7 +51,6 @@
 
         <span id="s_token">Unknown Session token</span>
       </div>
-      -->
       <div id="llistaCursos" class="collection">
         <a href="#!" class="collection-item">Unable to get courses</a>
       </div>
@@ -84,11 +82,17 @@
   <!-- Modal -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>El teu PIN es:</h4>
-      <p id="pinText">No s'ha pogut obtenir el PIN, torna a iniciar sessió.</p>
+      <h4>Qualificacions</h4>
+      <div id="qualifications">
+        <p id="qualText">No hi han qualificacions disponibles.</p>
+      </div>
+      <div id="pin">
+      </div>
+
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a id="getPIN" href="#!" class="waves-effect waves-green btn-flat">Obtenir PIN</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
     </div>
   </div>
     <!--  Scripts-->
