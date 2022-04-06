@@ -2,13 +2,13 @@
   $(function(){
 
     $('.sidenav').sidenav();
-    //$('.parallax').parallax();
     $('.tabs').tabs({"swipeable": true});
     $('select').formSelect();
     $('.scrollspy').scrollSpy();
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 document.addEventListener('deviceready', onDeviceReady, false);
+//Api selector 
 function otherAPIDetector(){
     switch($("#selectAPI option:selected").val()){
       case "1":
@@ -42,7 +42,7 @@ function onDeviceReady() {
       //Token Obtaining
       $.ajax({
         method: "GET",
-        url: "https://classvr-room-api.herokuapp.com/api/login",
+        url: usedAPI+"/api/login",
         data: {username:user,password:pass},
         dataType: "json",
       }).done(function (data) {
@@ -54,11 +54,11 @@ function onDeviceReady() {
             localStorage.setItem("api",usedAPI);
             location.href = './app.html';
           }else{
-            alert("ERROR: Les dades son incorrectes")
+            alert("ERROR: Los datos son incorrectos")
           }
       }).fail(function () {
         console.log("ERROR: La peticion AJAX no ha salido como se esperaba");
-        alert("ERROR: Les dades son incorrectes")
+        alert("ERROR: Los datos son incorrectos")
       });
       
       //Page reload prevention
