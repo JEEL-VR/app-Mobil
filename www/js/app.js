@@ -1,11 +1,12 @@
 $( document ).ready(function() {
     let pinButton=false;
     //Mostrar datos de Debug
-    $("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
-    $("#usedAPI").text("API: "+localStorage.getItem("api"))
-    //Obtaining courses with the API 
+    //$("#s_token").text("Token: "+localStorage.getItem("sesion_token"))
+    //$("#usedAPI").text("API: "+localStorage.getItem("api"))
+    //Clear llistaCursos List
     $("#llistaCursos").empty();
-    //Ajax request to show course details
+    
+    //Get PIN function
     function getPin(taskID){
         return function(){
             //Pin request
@@ -15,7 +16,7 @@ $( document ).ready(function() {
                 data: {session_token:localStorage.getItem("sesion_token"),VRtaskID:taskID},
                 dataType: "json",
             }).done(function (data) {
-                //Show the modal with the PIN
+                //This appends the pin to the modal
                 let pinTitle= $('<br><h4>Su PIN es:</h4>');
                 let pin = $('<p id="pinText">'+data+'</p>');
                 $("#pin").append(pinTitle)
@@ -31,6 +32,7 @@ $( document ).ready(function() {
             });
         };
     }
+    //Get qualifications function
     function getQualifications(taskID,cID){
         return function(){
             console.log(taskID);
@@ -47,11 +49,10 @@ $( document ).ready(function() {
             }).done(function (data) {
                 let trys=1;
                 let haveTasks=false;
-                //Show the modal with the PIN
-                
+                //Only append the completions of the user
                 for (let element in data["vr_tasks"]){
                     for(let completion in data["vr_tasks"][element]["completions"]){
-                        if(data["vr_tasks"][element]["completions"][completion]!=null){
+                        if(data["vr_tasks"][element]["completions"][completion]!=null){ //The completions that not are of the user the api return null
                             console.log(data["vr_tasks"][element]["completions"][completion]);
                             let tryText = $('<h5>Intento '+trys+'</h5>');
                             let passedI = $('<h6>Ejercicios correctos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["passed_items"]+'</h6>');
@@ -66,10 +67,12 @@ $( document ).ready(function() {
                         }
                     }
                 }
+                //If the user doesn't have any completion we notify of this on the modal
                 if(haveTasks==false){
                     let errorTask = $('<h6>No se ha completado ninguna tarea</h6>');
                     $("#qualifications").append(errorTask);
                 }
+                //Show the modal with the Qualifications
                 $('#modal1').modal();
                 $('#modal1').modal('open');
             }).fail(function () {
@@ -87,6 +90,8 @@ $( document ).ready(function() {
             }
         };
     }
+
+    //Logout method using API
     function logout(){
         $.ajax({
             method: "GET",
@@ -102,6 +107,8 @@ $( document ).ready(function() {
         });
         return false;
     }
+
+    //Function with Ajax request to show course details
     function openCourse(cID){
         return function(){
             $.ajax({
@@ -130,7 +137,7 @@ $( document ).ready(function() {
                 for (let element in data["vr_tasks"]){
                     console.log(data["vr_tasks"][element]);
                     let newElement = $('<a href="#" class="collection-item avatar"><i class="material-icons circle" style="background-color: #159A9C;">format_list_bulleted</i>'+data["vr_tasks"][element]["title"]+'</a>');
-                    newElement.click(getQualifications(data["vr_tasks"][element]["ID"],cID));
+                    newElement.click(getQualifications(data["vr_tasks"][element]["ID"],cID));//Onclick function to show qualifications and PIN modal
                     $("#llista_tasksvr").append(newElement);
                 }
                 //Title and description edit to 2nd tab
@@ -148,7 +155,7 @@ $( document ).ready(function() {
             $('.tabs').tabs('select', "test-swipe-2");
         };
     }
-
+    //Obtaining courses with the API 
     $.ajax({
         method: "GET",
         url: localStorage.getItem("api")+"/api/get_courses",
