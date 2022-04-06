@@ -51,21 +51,25 @@ $( document ).ready(function() {
                 let haveTasks=false;
                 //Only append the completions of the user
                 for (let element in data["vr_tasks"]){
-                    for(let completion in data["vr_tasks"][element]["completions"]){
-                        if(data["vr_tasks"][element]["completions"][completion]!=null){ //The completions that not are of the user the api return null
-                            console.log(data["vr_tasks"][element]["completions"][completion]);
-                            let tryText = $('<h5>Intento '+trys+'</h5>');
-                            let passedI = $('<h6>Ejercicios correctos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["passed_items"]+'</h6>');
-                            let failedI = $('<h6>Ejercicios incorrectos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["failed_items"]+'</h6>');
-                            let score = $('<h6>Puntuación: '+data["vr_tasks"][element]["completions"][completion]["grade"]+'</h6>');
-                            $("#qualifications").append(tryText);
-                            $("#qualifications").append(passedI);
-                            $("#qualifications").append(failedI);
-                            $("#qualifications").append(score);
-                            trys++;
-                            haveTasks=true;
+                    console.log("Data: "+data["vr_tasks"][element]["ID"]+" CID: "+taskID);
+                    if (data["vr_tasks"][element]["ID"]==taskID){
+                        for(let completion in data["vr_tasks"][element]["completions"]){
+                            if(data["vr_tasks"][element]["completions"][completion]!=null){ //The completions that not are of the user the api return null
+                                console.log(data["vr_tasks"][element]["completions"][completion]);
+                                let tryText = $('<h5>Intento '+trys+'</h5>');
+                                let passedI = $('<h6>Ejercicios correctos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["passed_items"]+'</h6>');
+                                let failedI = $('<h6>Ejercicios incorrectos: '+data["vr_tasks"][element]["completions"][completion]["autograde"]["failed_items"]+'</h6>');
+                                let score = $('<h6>Puntuación: '+data["vr_tasks"][element]["completions"][completion]["grade"]+'</h6>');
+                                $("#qualifications").append(tryText);
+                                $("#qualifications").append(passedI);
+                                $("#qualifications").append(failedI);
+                                $("#qualifications").append(score);
+                                trys++;
+                                haveTasks=true;
+                            }
                         }
                     }
+                    
                 }
                 //If the user doesn't have any completion we notify of this on the modal
                 if(haveTasks==false){
