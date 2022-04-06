@@ -5,6 +5,7 @@ $( document ).ready(function() {
     //$("#usedAPI").text("API: "+localStorage.getItem("api"))
     //Clear llistaCursos List
     $("#llistaCursos").empty();
+    let taskIDButton=0;
     
     //Get PIN function
     function getPin(taskID){
@@ -13,7 +14,7 @@ $( document ).ready(function() {
             $.ajax({
                 method: "GET",
                 url: localStorage.getItem("api")+"/api/pin_request",
-                data: {session_token:localStorage.getItem("sesion_token"),VRtaskID:taskID},
+                data: {session_token:localStorage.getItem("sesion_token"),VRtaskID:taskIDButton},
                 dataType: "json",
             }).done(function (data) {
                 //This appends the pin to the modal
@@ -76,6 +77,7 @@ $( document ).ready(function() {
                     let errorTask = $('<h6>No se ha completado ninguna tarea</h6>');
                     $("#qualifications").append(errorTask);
                 }
+                taskIDButton=taskID;
                 //Show the modal with the Qualifications
                 $('#modal1').modal();
                 $('#modal1').modal('open');
